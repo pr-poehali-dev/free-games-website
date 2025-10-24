@@ -17,6 +17,7 @@ const Header = () => {
             <a href="#catalog" className="text-foreground hover:text-primary transition-colors">Каталог</a>
             <a href="#top" className="text-foreground hover:text-primary transition-colors">Топ игр</a>
             <a href="#new" className="text-foreground hover:text-primary transition-colors">Новинки</a>
+            <a href="#rating" className="text-foreground hover:text-primary transition-colors">Рейтинг</a>
           </nav>
           <Button className="bg-primary hover:bg-primary/90">
             <Icon name="User" size={18} className="mr-2" />

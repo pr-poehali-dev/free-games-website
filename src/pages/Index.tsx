@@ -125,6 +125,53 @@ const Index = () => {
         </div>
       </section>
 
+      <section id="rating" className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-3 mb-8">
+            <Icon name="Medal" size={32} className="text-primary" />
+            <h2 className="font-heading font-bold text-3xl">Рейтинг игр</h2>
+          </div>
+          <div className="max-w-3xl mx-auto space-y-4">
+            {[...games].sort((a, b) => b.rating - a.rating).map((game, index) => (
+              <div
+                key={game.id}
+                onClick={() => handleGameClick(game)}
+                className="bg-card border border-border rounded-lg p-6 hover-scale hover-glow cursor-pointer transition-all duration-300"
+              >
+                <div className="flex items-center gap-6">
+                  <div className={`text-4xl font-bold font-heading ${
+                    index === 0 ? 'text-yellow-400' :
+                    index === 1 ? 'text-gray-400' :
+                    index === 2 ? 'text-orange-400' :
+                    'text-muted-foreground'
+                  }`}>
+                    #{index + 1}
+                  </div>
+                  <div className="text-6xl">{game.image}</div>
+                  <div className="flex-1">
+                    <h3 className="font-heading font-bold text-xl mb-2">{game.title}</h3>
+                    <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-2">
+                        <Icon name="Star" size={18} className="text-yellow-400 fill-yellow-400" />
+                        <span className="font-bold text-lg">{game.rating}</span>
+                      </div>
+                      <span className="text-muted-foreground">•</span>
+                      <div className="flex items-center gap-2 text-muted-foreground">
+                        <Icon name="MessageCircle" size={16} />
+                        <span>{game.reviews} отзывов</span>
+                      </div>
+                      <span className="text-muted-foreground">•</span>
+                      <span className="text-primary">{game.genre}</span>
+                    </div>
+                  </div>
+                  <Icon name="ChevronRight" size={24} className="text-muted-foreground" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="catalog" className="py-16 bg-muted/20">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-3 mb-8">
